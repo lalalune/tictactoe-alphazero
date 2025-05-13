@@ -25,19 +25,9 @@ DEFAULT_TRAINING_EPISODES = 200000 # Can be adjusted
 # MCTS Defaults
 DEFAULT_MCTS_SIMULATIONS = 100
 DEFAULT_MCTS_C_PARAM = 1.414
-# Q-Learning Replay Buffer Defaults
-DEFAULT_QL_REPLAY_BUFFER_SIZE = 10000
-DEFAULT_QL_BATCH_SIZE = 64
 
 DEFAULT_AZ_BATCH_SIZE=64
 DEFAULT_AZ_MODEL_PATH_BASE="model.pth"
-
-# Tabular Q-Learning with Replay Defaults
-DEFAULT_QL_LEARNING_RATE = 0.1
-DEFAULT_QL_DISCOUNT_FACTOR = 0.9
-DEFAULT_QL_EPSILON = 1.0
-DEFAULT_QL_EPSILON_DECAY = 0.99995 # Slower decay can be good with replay
-DEFAULT_QL_MIN_EPSILON = 0.05
 
 # Defaults for opponent mix annealing
 DEFAULT_INITIAL_OPPONENT_MIX_RATIO = 0.0 # Start with 100% RandomAgent
@@ -597,17 +587,6 @@ def main():
                         help='Base path for saving training plots. Run tag and episode count will be appended.')
     parser.add_argument('--run_tag', type=str, default="", 
                         help='A unique tag for this run, appended to output filenames (e.g., for hyperparameter sweeps).')
-    
-    # Tabular Q-Learning specific args - Re-add replay buffer args
-    parser.add_argument('--lr', type=float, default=DEFAULT_QL_LEARNING_RATE, help='Learning rate (alpha).')
-    parser.add_argument('--gamma', type=float, default=DEFAULT_QL_DISCOUNT_FACTOR, help='Discount factor.')
-    parser.add_argument('--epsilon', type=float, default=DEFAULT_QL_EPSILON, help='Initial exploration rate.')
-    parser.add_argument('--epsilon_decay', type=float, default=DEFAULT_QL_EPSILON_DECAY, help='Exploration rate decay.')
-    parser.add_argument('--min_epsilon', type=float, default=DEFAULT_QL_MIN_EPSILON, help='Minimum exploration rate.')
-    parser.add_argument('--replay_buffer_size', type=int, default=DEFAULT_QL_REPLAY_BUFFER_SIZE,
-                        help='Size of the experience replay buffer.')
-    parser.add_argument('--batch_size', type=int, default=DEFAULT_QL_BATCH_SIZE,
-                        help='Batch size for sampling from replay buffer.')
 
     # MCTS specific args
     parser.add_argument('--num_simulations', type=int, default=DEFAULT_MCTS_SIMULATIONS)

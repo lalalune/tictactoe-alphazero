@@ -504,20 +504,6 @@ def get_board_representation(board_array_2d: np.ndarray, player_turn: int, board
     # Let's flatten each then concatenate for a 1D vector of size 2*H*W
     return np.concatenate((plane1.flatten(), plane2.flatten()), axis=0).astype(np.float32)
 
-# if __name__ == '__main__':
-#    # ... (AlphaZeroNet tests from before can remain) ...
-#    # Add tests for get_board_representation
-#    print("\n--- Board Representation Test ---")
-#    test_board = np.array([[1,0,2],[0,1,0],[2,0,1]])
-#    print("Original Board:")
-#    print(test_board)
-#    rep_p1 = get_board_representation(test_board, player_turn=1)
-#    print(f"Representation for P1 (shape {rep_p1.shape}):\n{rep_p1}")
-#    # Expected for P1: [1,0,0,0,1,0,0,0,1,  0,0,1,0,0,0,1,0,0]
-#    rep_p2 = get_board_representation(test_board, player_turn=2)
-#    print(f"Representation for P2 (shape {rep_p2.shape}):\n{rep_p2}")
-#    # Expected for P2: [0,0,1,0,0,0,1,0,0,  1,0,0,0,1,0,0,0,1] 
-
 # --- MCTS Node for AlphaZero (MCTSNode_AZ) --- #
 class MCTSNode_AZ:
     """Node in the Monte Carlo Search Tree for an AlphaZero-like agent."""
@@ -816,8 +802,4 @@ class MCTSAgent_AZ:
         return chosen_action
 
     def learn(self, *args, **kwargs):
-        # MCTS itself doesn't "learn" in this Q-learning sense. The NN learns.
-        # This agent is used for inference and generating search data.
         pass 
-
-# if __name__ == '__main__': ... (tests for AlphaZeroNet, get_board_representation can remain) 
