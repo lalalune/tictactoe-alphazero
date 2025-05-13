@@ -2,6 +2,8 @@
 
 This project implements an AI agent for playing Tic Tac Toe using the AlphaZero algorithm, which combines Monte Carlo Tree Search (MCTS) with a deep neural network.
 
+**DISCLAIMER**: I implemented it to learn about reinforcement learning and it seems to work well enough but please take this implementation with a grain of salt :)
+
 ## Features
 
 *   **AlphaZero Algorithm:** Trains a neural network through self-play and MCTS.
