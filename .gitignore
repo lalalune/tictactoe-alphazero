@@ -1,0 +1,8 @@
+*.pkl
+*.docx
+*.npy
+makefile
+.vscode
+__pycache__/
+*.png
+*.pth
